@@ -17,12 +17,18 @@ export async function scaffold(day: number, year: number) {
   await mkdir(directory)
 
   const test = dedent`
-  import { describe } from 'bun:test'
+  import { describe, expect, test } from 'bun:test'
+  import { partOne, parse, partTwo } from './${day.toString().padStart(2, '0')}'
 
   describe(${`'Day ${day}'`}, () => {
-    describe('Part One', () => {})
-    
-    describe('Part Two', () => {})
+    const { default: example } = await import('./example.txt')
+    test('Part One', () => {
+      expect(partOne(parse(example))).toEqual(209)
+    })
+  
+    test('Part Two', () => {
+      expect(partTwo(parse(example))).toEqual(281)
+    })
   })
   `
 
@@ -31,9 +37,13 @@ export async function scaffold(day: number, year: number) {
     return input
   }
   
-  export function partOne(input: ReturnType<typeof parse>) {}
+  export function partOne(input: ReturnType<typeof parse>): number {
+    return 0
+  }
 
-  export function partTwo(input: ReturnType<typeof parse>) {}
+  export function partTwo(input: ReturnType<typeof parse>):number {
+    return 0
+  }
   `
 
   console.log(`📂 Fetching your input`)
