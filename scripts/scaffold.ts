@@ -20,14 +20,14 @@ export async function scaffold(day: number, year: number) {
   import { describe, expect, test } from 'bun:test'
   import { partOne, parse, partTwo } from './${day.toString().padStart(2, '0')}'
 
-  describe(${`'Day ${day}'`}, () => {
+  describe(${`'Day ${day}'`}, async () => {
     const { default: example } = await import('./example.txt')
     test('Part One', () => {
-      expect(partOne(parse(example))).toEqual(209)
+      expect(partOne(parse(example))).toEqual(0)
     })
   
     test('Part Two', () => {
-      expect(partTwo(parse(example))).toEqual(281)
+      expect(partTwo(parse(example))).toEqual(0)
     })
   })
   `
