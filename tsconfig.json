@@ -10,7 +10,6 @@
     "composite": true,
     "strict": true,
     "noImplicitAny": true,
-    "noUncheckedIndexedAccess": true,
     "downlevelIteration": true,
     "skipLibCheck": true,
     "jsx": "preserve",
