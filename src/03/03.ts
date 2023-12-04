@@ -51,8 +51,6 @@ export function partTwo(input: ReturnType<typeof parse>): number {
   const numberLocations = getNumberLocations(input)
   let gearRatioSum = 0
   input.forEach((l, i) => {
-    let numberString = ''
-    let isBuildingNumber = false
     Array.from(l).forEach((c, j) => {
       if (c === '*') {
         let adjacentSpaces = getAdjacentSpacesForRange([i, j], [i, j])
